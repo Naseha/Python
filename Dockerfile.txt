@@ -1,0 +1,17 @@
+# Use a Python base image (we'll assume you need Jupyter dependencies)
+FROM python:3.9
+
+# Set the working directory to where your notebook is
+WORKDIR /OneDrive/Knowledge Center/Master in Dev Ops/TempFolder_for_Cloning_Repository/Python
+
+# Copy your notebook
+COPY Project 2 - Movielens.ipynb .
+
+# Install JupyterLab and any other dependencies
+RUN pip install jupyterlab -r requirements.txt 
+
+# Expose the port Jupyter Notebook typically uses
+EXPOSE 8888
+
+# Command to start Jupyter Lab 
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root"] 
